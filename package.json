@@ -8,6 +8,8 @@
     "build": "tsc -p .",
     "lint": "eslint ./src/**/*",
     "dev": "npx tsx watch src/server.ts",
+    "prisma":"npx prisma generate  && npx prisma migrate dev",
+    "show":"npx prisma studio",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
