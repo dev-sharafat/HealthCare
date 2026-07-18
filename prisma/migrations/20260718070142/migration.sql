@@ -1,0 +1,5 @@
+-- AlterTable
+ALTER TABLE "patient" ALTER COLUMN "profilePhoto" DROP NOT NULL,
+ALTER COLUMN "contactNumber" DROP NOT NULL,
+ALTER COLUMN "address" DROP NOT NULL,
+ALTER COLUMN "gender" DROP NOT NULL;

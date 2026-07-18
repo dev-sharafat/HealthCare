@@ -9,3 +9,8 @@ enum USER_STATUS {
   INACTIVE
   SUSPENDED
 }
+
+enum Gender {
+  MALE
+  FEMALE
+}

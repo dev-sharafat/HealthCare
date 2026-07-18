@@ -4,7 +4,8 @@ import { AuthService } from "./auth.service";
 import { sendResponse } from "../../utils/sendResponse";
 
 const registerPatient = catchAsync(async(req:Request,res:Response)=>{
-    const result = await AuthService.registerUserData(req)
+    const payload = req.body
+    const result = await AuthService.registerUserData(payload)
     sendResponse(res,{
         httpStatusCode: 201,
         success: true,
