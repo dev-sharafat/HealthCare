@@ -1,9 +1,10 @@
 export interface ErrorInterface {
     success: boolean;
-    error: string;
+    error?: string;
     errorSource: IZodErrorSource[];
     message: string;
     statusCode: number;
+    stack ?:string
 }
 export interface IZodErrorSource {
   path: string;

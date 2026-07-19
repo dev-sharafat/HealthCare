@@ -1,6 +1,8 @@
 import { Request } from "express";
 import { Specialty } from "../../../../generated/prisma/client";
 import { prisma } from "../../lib/prisma";
+import AppError from "../../errorHelpers/AppError";
+import status from "http-status";
 
 const postSpecialtyData = async (payload: Specialty) => {
   const result = await prisma.specialty.create({
@@ -22,7 +24,7 @@ const updateSpecialtyData = async (req: Request) => {
     },
   });
   if (!findSpecialty) {
-    throw new Error("Specialty not found");
+    throw new AppError(status.NOT_FOUND,"Specialty not found");
   }
   const result = await prisma.specialty.update({
     where: {
@@ -41,7 +43,7 @@ const deleteSpecialtyData = async (req: Request) => {
     },
   });
   if (!findSpecialty) {
-    throw new Error("Specialty not found");
+    throw new AppError(status.NOT_FOUND,"Specialty not found");
   }
   const result = await prisma.specialty.delete({
     where: {

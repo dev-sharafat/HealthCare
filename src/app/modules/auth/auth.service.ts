@@ -2,6 +2,8 @@ import { Request } from "express";
 import { auth } from "../../lib/auth";
 import { prisma } from "../../lib/prisma";
 import { IRegisterUserData } from "./auth.instance";
+import AppError from "../../errorHelpers/AppError";
+import status from "http-status";
 
 const registerUserData = async (payload: IRegisterUserData) => {
   const { name, email, password } = payload;
@@ -14,7 +16,7 @@ const registerUserData = async (payload: IRegisterUserData) => {
   });
 
   if (!userData.user) {
-    throw new Error("The user data is not created");
+    throw new AppError(status.ALREADY_REPORTED,"The user data is not created");
   }
 
   try {
